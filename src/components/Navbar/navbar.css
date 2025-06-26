@@ -1,0 +1,21 @@
+.barra-navegacion {
+  background-color: #7A1D2D;
+  padding: 0 40px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.logo-navegacion {
+  font-weight: bold;
+  font-size: 25px;
+  color: white;
+  margin-right: 40px;
+}
+
+.enlace-navegacion {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 25px;
+  font-weight: 600;
+}
