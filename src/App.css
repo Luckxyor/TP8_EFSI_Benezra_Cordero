@@ -17,3 +17,7 @@
     animation: logo-spin infinite 20s linear;
   }
 }
+
+ul{
+  list-style: none;
+}

@@ -18,13 +18,23 @@ const Navbar=()=>{
       <ul>
         <li><Link to='/' className="enlace-navegacion">Home</Link></li>
         <li><Link to='/quienes-somos' className="enlace-navegacion">Quienes somos</Link></li>
-        <li>
-          Productos
-          <ul>
-            <li><Link to='/productos' className="enlace-navegacion">Ver todos</Link></li>
-            {categorias.map(categoria => (
-              <li key={categoria}>
-                <Link to={`/productos/${categoria}`} className="enlace-navegacion">{categoria}</Link>
+        <li className="dropdown-container">
+          <span className="dropdown-toggle">
+            Productos
+            <span className="dropdown-arrow">▼</span>
+          </span>
+          <ul className="dropdown-menu">
+            <li className="dropdown-item">
+              <Link to='/productos' className="dropdown-link">Ver todos</Link>
+            </li>
+            {categorias.map((categoria, index) => (
+              <li key={`${categoria.slug || categoria}-${index}`} className="dropdown-item">
+                <Link 
+                  to={`/productos/categoria/${categoria.slug || categoria}`} 
+                  className="dropdown-link"
+                >
+                  {categoria.name || categoria}
+                </Link>
               </li>
             ))}
           </ul>
