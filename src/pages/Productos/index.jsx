@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import CardProducto from '../../components/CardProducto';
 import './productos.css';
 
 const Productos = () => {
@@ -21,20 +22,21 @@ const Productos = () => {
 
   return (
     <div className="productos-container">
+      <h1 className="productos-titulo">
+        {idCategoria ? `Productos - ${idCategoria}` : 'Todos los Productos'}
+      </h1>
       {productos.length === 0 ? (
-        <p>No se encontraron productos.</p>
+        <p className="no-productos">No se encontraron productos.</p>
       ) : (
-        <ul className="productos-list">
+        <div className="productos-grid">
           {productos.map(producto => (
-            <li key={producto.id} className="producto-item">
-              <Link to={`/productos/producto/${producto.id}`}>
-                <img src={producto.thumbnail} alt={producto.title} className="producto-imagen" />
-                <h3 className="producto-titulo">{producto.title}</h3>
-                <p className="producto-precio">${producto.price}</p>
-              </Link>
-            </li>
+            <CardProducto 
+              key={producto.id}
+              producto={producto}
+              className="producto-listado"
+            />
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
