@@ -36,19 +36,6 @@
   transform: scale(1.05);
 }
 
-.descuento-producto {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #dc3545;
-  color: white;
-  padding: 5px 8px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  z-index: 2;
-}
-
 .informacion-producto {
   padding: 20px;
   height: calc(100% - 200px);
@@ -90,13 +77,6 @@
   font-size: 1.4rem;
   color: #7A1D2D;
   font-weight: bold;
-  margin: 0;
-}
-
-.precio-original-producto {
-  font-size: 1rem;
-  color: #6c757d;
-  text-decoration: line-through;
   margin: 0;
 }
 
