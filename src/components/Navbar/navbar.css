@@ -4,11 +4,11 @@
   height: 60px;
   display: flex;
   align-items: center;
-  position: relative;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 999;
+  box-sizing: border-box;
 }
 
 .logo-navegacion {
@@ -32,7 +32,7 @@
 nav ul {
   list-style: none;
   display: flex;
-  justify-content: center;
+  align-items: center;
   gap: 5rem;
   margin: 0;
   padding: 0;
@@ -42,92 +42,124 @@ nav ul li {
   position: relative;
 }
 
-/* Dropdown styles */
-.dropdown-container {
+.contenedor-dropdown {
   position: relative;
 }
 
-.dropdown-toggle {
+.boton-dropdown {
+  background: none;
+  border: none;
   color: #fff;
-  text-decoration: none;
   font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 5px;
-  transition: color 0.3s ease;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-family: inherit;
 }
 
-.dropdown-toggle:hover {
+.boton-dropdown:hover {
   color: #f0f0f0;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-.dropdown-arrow {
+.flecha-dropdown {
   font-size: 12px;
   transition: transform 0.3s ease;
 }
 
-.dropdown-container:hover .dropdown-arrow {
+.flecha-dropdown.abierta {
   transform: rotate(180deg);
 }
 
-.dropdown-menu {
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  gap: 0 ;
-  top: 60px;
-  left: 39%;
+.menu-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
   transform: translateX(-50%);
-  background-color: #fff;
+  background-color: white;
   max-width: 300px;
-  max-height: 300px;
+  max-height: 75vh;
   overflow-y: auto;
-  box-shadow: 0 8px 16px rgba(12, 9, 9, 0.15);
+  overflow-x: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
   padding: 8px 0;
+  margin-top: 8px;
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
   transform: translateX(-50%) translateY(-10px);
   transition: all 0.3s ease;
   border: 1px solid #e0e0e0;
-  font-size: 0.9rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
-.dropdown-container:hover .dropdown-menu {
+.menu-dropdown.mostrar {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
 
-.dropdown-item {
+.item-dropdown {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 20px;
 }
 
-.dropdown-link {
+.enlace-dropdown {
   display: block;
-  padding: 12px 20px;
+  padding: 4px 24px;
   color: #333;
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
-  border-bottom: 1px solid #f5f5f5;
+  text-transform: capitalize;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.dropdown-item:last-child .dropdown-link {
-  border-bottom: none;
-}
-
-.dropdown-link:hover {
+.enlace-dropdown:hover {
   background-color: #f8f9fa;
   color: #7A1D2D;
-  padding-left: 25px;
+  padding-left: 26px;
+  transform: translateX(2px);
 }
 
-/* Responsive adjustments */
+/* Estilos para el scrollbar */
+.menu-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.menu-dropdown::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.menu-dropdown::-webkit-scrollbar-thumb {
+  background: #7A1D2D;
+  border-radius: 3px;
+}
+
+.menu-dropdown::-webkit-scrollbar-thumb:hover {
+  background: #5d1622;
+}
+
+.separador-dropdown {
+  height: 1px;
+  background-color: #e9ecef;
+  margin: 8px 16px;
+}
+
 @media (max-width: 768px) {
   .barra-navegacion {
     padding: 0 20px;
@@ -142,13 +174,62 @@ nav ul li {
     gap: 2rem;
   }
   
-  .dropdown-menu {
+  .menu-dropdown {
     left: 0;
     transform: none;
-    min-width: 180px;
+    min-width: 280px;
+    max-width: 350px;
+    max-height: 60vh;
+    margin-top: 5px;
   }
   
-  .dropdown-container:hover .dropdown-menu {
+  .menu-dropdown.mostrar {
     transform: none;
+  }
+  
+  .enlace-dropdown {
+    padding: 3px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .barra-navegacion {
+    padding: 0 15px;
+  }
+  
+  .logo-navegacion {
+    margin-right: 1rem;
+    font-size: 18px;
+  }
+  
+  nav ul {
+    gap: 1rem;
+  }
+  
+  .boton-dropdown {
+    font-size: 0.9rem;
+    padding: 6px 8px;
+  }
+  
+  .menu-dropdown {
+    min-width: 250px;
+    max-width: 300px;
+    max-height: 50vh;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .menu-dropdown.mostrar {
+    transform: translateX(-50%);
+  }
+  
+  .enlace-dropdown {
+    padding: 2px 16px;
+    font-size: 13px;
+  }
+  
+  .enlace-navegacion {
+    font-size: 0.9rem;
   }
 }
