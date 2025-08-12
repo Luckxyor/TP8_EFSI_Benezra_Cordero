@@ -1,12 +1,15 @@
 :root {
+  /* Variables básicas */
+  --color-principal: #7A1D2D;
+  --color-principal-hover: #5d1622;
+  
+  /* Fuente y transiciones */
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light;
   color: #213547;
   background-color: #ffffff;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -18,11 +21,11 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: #f8f9fa;
-  overflow-x: hidden; /* Prevenir scroll horizontal */
+  overflow-x: hidden;
 }
 
 * {
-  box-sizing: border-box; /* Incluir padding y border en el width */
+  box-sizing: border-box;
 }
 
 h1 {
@@ -38,21 +41,22 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #7A1D2D;
+  background-color: var(--color-principal);
   color: white;
   cursor: pointer;
-  transition: all 0.25s;
+  transition: all 0.3s ease;
 }
+
 button:hover {
-  background-color: #5d1622;
+  background-color: var(--color-principal-hover);
   transform: translateY(-2px);
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* Reset de App.css */
 #root {
   width: 100%;
   min-height: 100vh;

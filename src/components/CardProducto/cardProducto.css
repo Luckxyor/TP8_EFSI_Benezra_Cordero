@@ -29,7 +29,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .tarjeta-producto:hover .imagen-producto {
@@ -61,7 +61,7 @@
 .categoria-producto {
   font-size: 0.9rem;
   color: #6c757d;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   text-transform: capitalize;
   font-weight: 500;
 }
@@ -69,13 +69,13 @@
 .contenedor-precio-producto {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 8px;
 }
 
 .precio-producto {
   font-size: 1.4rem;
-  color: #7A1D2D;
+  color: var(--color-principal);
   font-weight: bold;
   margin: 0;
 }
@@ -105,6 +105,7 @@
   margin-left: 5px;
 }
 
+/* Variantes de tamaño */
 .tarjeta-producto.pequena {
   max-width: 250px;
 }
@@ -121,6 +122,7 @@
   height: 250px;
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
   .informacion-producto {
     padding: 15px;
